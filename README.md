@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recetas y Juego de Cocina</title>
+  <title>Recetas y Juegos de Cocina</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -48,6 +48,14 @@
       border-radius: 10px;
       margin-bottom: 15px;
       padding: 15px;
+    }
+
+    .receta img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      display: block;
+      margin: 10px auto;
     }
 
     button {
@@ -100,6 +108,13 @@
       margin-top: 5px;
     }
 
+    footer {
+      text-align: center;
+      background-color: #ffab91;
+      padding: 10px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -120,6 +135,7 @@
 
     <div class="receta">
       <h3>1. Paella Española</h3>
+      <img src="https://cdn.pixabay.com/photo/2015/07/01/08/21/paella-827584_1280.jpg" alt="Paella Española">
       <p><strong>Ingredientes:</strong> Arroz, pollo, mariscos, pimientos, cebolla, azafrán, aceite de oliva.</p>
       <p><strong>Pasos:</strong></p>
       <ol>
@@ -131,6 +147,7 @@
 
     <div class="receta">
       <h3>2. Pasta Carbonara</h3>
+      <img src="https://cdn.pixabay.com/photo/2017/08/06/12/38/spaghetti-2590508_1280.jpg" alt="Pasta Carbonara">
       <p><strong>Ingredientes:</strong> Pasta, huevo, panceta, queso parmesano, pimienta.</p>
       <p><strong>Pasos:</strong></p>
       <ol>
@@ -142,6 +159,7 @@
 
     <div class="receta">
       <h3>3. Arepas de Queso</h3>
+      <img src="https://cdn.pixabay.com/photo/2020/05/21/22/59/arepas-5203420_1280.jpg" alt="Arepas de Queso">
       <p><strong>Ingredientes:</strong> Harina de maíz, queso rallado, mantequilla, sal.</p>
       <p><strong>Pasos:</strong></p>
       <ol>
@@ -162,6 +180,8 @@
       <button onclick="intentar()">Probar</button>
       <p id="mensaje"></p>
       <button onclick="nuevoJuego()">Nuevo Juego</button>
+      <br><br>
+      <img id="imagenAhorcado" src="https://cdn-icons-png.flaticon.com/512/685/685655.png" width="150" alt="Ahorcado">
     </div>
   </section>
 
@@ -185,6 +205,10 @@
     </form>
   </section>
 
+  <footer>
+    © 2025 Recetas y Juegos de Cocina | Desarrollado por ChatGPT
+  </footer>
+
   <script>
     // Cambiar secciones
     function mostrarSeccion(id) {
@@ -205,6 +229,7 @@
       document.getElementById("palabra").textContent = palabraGuiones.join(" ");
       document.getElementById("intentos").textContent = intentosRestantes;
       document.getElementById("mensaje").textContent = "";
+      document.getElementById("imagenAhorcado").src = "https://cdn-icons-png.flaticon.com/512/685/685655.png";
     }
 
     function intentar() {
@@ -223,6 +248,18 @@
       document.getElementById("palabra").textContent = palabraGuiones.join(" ");
       document.getElementById("intentos").textContent = intentosRestantes;
 
+      // Cambiar imagen según intentos
+      const imagenes = [
+        "https://cdn-icons-png.flaticon.com/512/685/685655.png",
+        "https://cdn-icons-png.flaticon.com/512/685/685649.png",
+        "https://cdn-icons-png.flaticon.com/512/685/685652.png",
+        "https://cdn-icons-png.flaticon.com/512/685/685653.png",
+        "https://cdn-icons-png.flaticon.com/512/685/685654.png",
+        "https://cdn-icons-png.flaticon.com/512/685/685656.png",
+        "https://cdn-icons-png.flaticon.com/512/685/685657.png"
+      ];
+      document.getElementById("imagenAhorcado").src = imagenes[6 - intentosRestantes];
+
       if (!palabraGuiones.includes("_")) {
         document.getElementById("mensaje").textContent = "¡Ganaste! 🎉";
       } else if (intentosRestantes <= 0) {
@@ -230,7 +267,6 @@
       }
     }
 
-    // Iniciar el primer juego
     nuevoJuego();
   </script>
 
