@@ -205,7 +205,7 @@
   </section>
 
   <footer>
-    © 2025 Recetas y Juegos de Cocina | Desarrollado por ChatGPT
+    © 2025 Recetas y Juegos de Cocina | Desarrollado por Laura Asprilla.
   </footer>
 
   <script>
