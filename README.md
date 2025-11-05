@@ -231,6 +231,7 @@
       document.getElementById("imagenAhorcado").src = "https://cdn-icons-png.flaticon.com/512/685/685655.png";
     }
 
+    
     function intentar() {
       const letra = document.getElementById("letra").value.toLowerCase();
       document.getElementById("letra").value = "";
